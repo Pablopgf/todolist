@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'todolist';
+  todo = ''
+  todos: any[] = []
+
+  addTodo() {
+    if (this.todo != '') {
+      this.todos = [...this.todos, this.todo]
+      this.todo = '';
+    }
+  }
+  completed(index: number) {
+    this.todos.splice(index, 1);
+  }
 }
